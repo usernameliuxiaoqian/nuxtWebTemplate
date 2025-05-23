@@ -1,9 +1,16 @@
 <template>
   <div>
-    <h1>这是头</h1>
+    <StHeader />
+
     <main class="content-container" ref="container">
-      <nuxt />
+      <NuxtPage></NuxtPage>
     </main>
-    <h1>这是尾</h1>
+
+    <StFooter />
   </div>
 </template>
+
+<script lang="ts" setup>
+import StHeader from '~/components/Header/index.vue'
+import StFooter from '~/components/Footer/index.vue'
+</script>
