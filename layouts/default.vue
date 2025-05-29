@@ -1,16 +1,18 @@
 <template>
-  <div>
-    <StHeader />
+  <div class="layout__wrapper">
+    <ZoniHeader />
 
-    <main class="content-container" ref="container">
-      <NuxtPage></NuxtPage>
-    </main>
+    <Transition>
+      <ZoniMain />
+    </Transition>
 
-    <StFooter />
+    <ZoniFooter />
   </div>
 </template>
 
-<script lang="ts" setup>
-import StHeader from '~/components/Header/index.vue'
-import StFooter from '~/components/Footer/index.vue'
-</script>
+<script lang="ts"></script>
+
+<style lang="scss" scoped>
+.layout__wrapper {
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <div>wei</div>
+  <div>woshijiao</div>
 </template>
 
 <script lang="ts" setup></script>

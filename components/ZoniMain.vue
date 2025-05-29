@@ -1,11 +1,6 @@
 <template>
   <div>
-    tou dsad dsad
-    <div>
-      APP-ANDROID d
-
-      <div>a</div>
-    </div>
+    <NuxtPage :page-key="(route) => route.fullPath" />
   </div>
 </template>
 
