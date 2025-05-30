@@ -9,3 +9,11 @@ export interface NavItemResponse {
   type: "cate" | "nav";
   url: string;
 }
+ export interface FooterPCLink {
+  linkName?: string;
+  linkUrl?:  string;
+ }
+ export interface OtherEntrance{
+   url: string;
+   title:string
+ }
