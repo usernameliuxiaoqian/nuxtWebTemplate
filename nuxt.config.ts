@@ -45,10 +45,8 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
   },
-  modules: [
-    '@element-plus/nuxt',
-    // '@pinia/nuxt'
-  ],
+  modules: [// '@pinia/nuxt'
+  '@element-plus/nuxt', "@nuxt/image"],
   // plugins: [
   //   "@/plugins/union-ad-vue.client.js"
   // ],
