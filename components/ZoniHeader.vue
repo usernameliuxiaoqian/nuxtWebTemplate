@@ -44,14 +44,49 @@
             <el-input placeholder="关键字搜索" class="search-input">
               <template #append>
                 <div class="search-input-icon__wrapper">
-                  <el-button :icon="Search" />
+                  <el-button class="search-btn">
+                    <el-icon size="25" color="#fff">
+                      <Search />
+                    </el-icon>
+                  </el-button>
                 </div>
               </template>
             </el-input>
+
+            <ul class="keywords-list__wrapper">
+              <li
+                class="keywords-item"
+                v-for="(item, index) in keywordsList"
+                :key="index"
+              >
+                {{ item.label }}
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div class="search-bar-r__wrapper"></div>
+        <div class="search-bar-r__wrapper">
+          <NuxtLink to="/article">
+            <div class="cart__wrapper">
+              <div>
+                <NuxtImg
+                  class="icon-cart"
+                  src="https://www.zoni8.com/static/cn/images/common/contents/cart.png"
+                />
+                <span class="cart-num">0</span>
+              </div>
+              <span>我的购物车</span>
+            </div>
+          </NuxtLink>
+
+          <NuxtLink to="/login">
+            <div class="common-btn plain">登录</div>
+          </NuxtLink>
+
+          <NuxtLink to="/login">
+            <div class="common-btn">注册</div>
+          </NuxtLink>
+        </div>
       </div>
     </div>
   </header>
@@ -64,6 +99,18 @@ import type { NavItemResponse } from "~/types/config";
 import { Search } from "@element-plus/icons-vue";
 
 const navList = ref<NavItemResponse[]>([]);
+const keywordsList = ref([
+  { label: "高企", value: "高企" },
+  { label: "资质认证", value: "资质认证" },
+  { label: "商标设计", value: "商标设计" },
+  { label: "工商代办", value: "工商代办" },
+  { label: "代理记账", value: "代理记账" },
+  { label: "专利", value: "专利" },
+  { label: "审计", value: "审计" },
+  { label: "软著", value: "软著" },
+  { label: "管理体系", value: "管理体系" },
+]);
+
 const webData = await getWebConfigByGroup("web");
 const layoutData = await getWebConfigByGroup("layout");
 const navData = await getNavList();
@@ -146,10 +193,13 @@ console.log("st---layoutData", layoutData);
         }
 
         .search__wrapper {
+          margin-left: 50px;
+
           :deep(.el-input) {
             .el-input-group__append {
               padding: 0;
               background-color: var(--zoni-primary-color);
+              border-radius: 0;
             }
 
             .el-input__wrapper {
@@ -163,6 +213,8 @@ console.log("st---layoutData", layoutData);
           }
 
           .search-input {
+            width: 550px;
+
             .search-input-icon__wrapper {
               display: flex;
               align-items: center;
@@ -170,12 +222,81 @@ console.log("st---layoutData", layoutData);
               width: 55px;
               height: 40px;
               border: 1px solid var(--zoni-primary-color);
+
+              .search-btn {
+                padding: 0;
+              }
+            }
+          }
+
+          .keywords-list__wrapper {
+            display: flex;
+            align-items: center;
+
+            .keywords-item {
+              height: 30px;
+              line-height: 30px;
+              margin-left: 10px;
+              cursor: pointer;
+              font-size: 12px;
+              color: #666666;
             }
           }
         }
       }
 
       .search-bar-r__wrapper {
+        display: flex;
+        padding-top: 5px;
+
+        .cart__wrapper {
+          display: flex;
+          height: 40px;
+          line-height: 40px;
+          padding: 0 8px;
+          font-size: 12px;
+          border: 1px solid #eee;
+          border-radius: 2px;
+          color: var(--zoni-primary-color);
+
+          .icon-cart {
+            width: 15px;
+          }
+
+          .cart-num {
+            position: relative;
+            top: -10px;
+            left: -6px;
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            line-height: 12px;
+            font-size: 12px;
+            text-align: center;
+            color: #ffffff;
+            border-radius: 8px;
+            background: var(--zoni-primary-color);
+          }
+        }
+
+        .common-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 56px;
+          height: 40px;
+          margin-left: 10px;
+          font-size: 12px;
+          background-color: var(--zoni-primary-color);
+          color: #fff;
+          border: 1px solid var(--zoni-primary-color);
+
+          &.plain {
+            background-color: #fff;
+            border: 1px solid #eee;
+            color: rgb(51, 51, 51);
+          }
+        }
       }
     }
   }
